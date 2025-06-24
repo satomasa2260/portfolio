@@ -337,4 +337,14 @@ footer {
   .link-label {
     font-size: 0.92rem;
   }
+}
+
+.about-icon {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 } 
