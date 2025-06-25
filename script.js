@@ -116,25 +116,46 @@ const works = [
     link: "https://www.tiktok.com/@spacewhiz2024/video/7428934163421547793"
   },
   {
-    title: "AIで自動作曲してみた！",
+    title: "Lo-Fi Work & Study Mix【勉強や仕事のときに聴きたい作業用BGM】",
     category: "youtube",
     categoryLabel: "YouTube",
     thumb: "images/YouTube/001.png",
     link: "https://www.youtube.com/watch?v=cSBACGVmUm4"
   },
   {
-    title: "AIで自動作詞してみた！",
+    title: "Chill Beats to Boost Your Productivity | Lo-Fi Work & Study Mix【勉強や仕事のときに聴きたい作業用BGM】",
     category: "youtube",
     categoryLabel: "YouTube",
     thumb: "images/YouTube/002.png",
     link: "https://www.youtube.com/watch?v=yzSSP3PTTWA"
   },
   {
-    title: "AIで自動アレンジしてみた！",
+    title: "勉強や仕事のときに聴きたい作業用BGM - Jazzy lo-fi hip hop vol.2",
     category: "youtube",
     categoryLabel: "YouTube",
     thumb: "images/YouTube/003.png",
     link: "https://www.youtube.com/watch?v=uA6JGHPBVvg"
+  },
+  {
+    title: "勉強や仕事のときに聴きたい作業用BGM - Jazzy lo-fi hip hop (studying or working)",
+    category: "youtube",
+    categoryLabel: "YouTube",
+    thumb: "images/YouTube/004.png",
+    link: "https://www.youtube.com/watch?v=5nAA5T1ge98"
+  },
+  {
+    title: "勉強や仕事のときに聴きたい作業用BGM - Lo-fi Chill Relaxing Study Music.",
+    category: "youtube",
+    categoryLabel: "YouTube",
+    thumb: "images/YouTube/005.png",
+    link: "https://www.youtube.com/watch?v=1yFGIF-2Tm0"
+  },
+  {
+    title: "勉強や仕事のときに聴きたい作業用BGM - Lo-fi, Hip Hop Beats, Jazz",
+    category: "youtube",
+    categoryLabel: "YouTube",
+    thumb: "images/YouTube/006.png",
+    link: "https://www.youtube.com/watch?v=1ouevNwOjR8"
   }
 ];
 
