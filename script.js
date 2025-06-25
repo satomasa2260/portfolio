@@ -114,6 +114,27 @@ const works = [
     categoryLabel: "TikTok",
     thumb: "images/TikTok/solar.png",
     link: "https://www.tiktok.com/@spacewhiz2024/video/7428934163421547793"
+  },
+  {
+    title: "AIで自動作曲してみた！",
+    category: "youtube",
+    categoryLabel: "YouTube",
+    thumb: "images/YouTube/001.png",
+    link: "https://www.youtube.com/watch?v=cSBACGVmUm4"
+  },
+  {
+    title: "AIで自動作詞してみた！",
+    category: "youtube",
+    categoryLabel: "YouTube",
+    thumb: "images/YouTube/002.png",
+    link: "https://www.youtube.com/watch?v=yzSSP3PTTWA"
+  },
+  {
+    title: "AIで自動アレンジしてみた！",
+    category: "youtube",
+    categoryLabel: "YouTube",
+    thumb: "images/YouTube/003.png",
+    link: "https://www.youtube.com/watch?v=uA6JGHPBVvg"
   }
 ];
 
