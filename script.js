@@ -156,6 +156,27 @@ const works = [
     categoryLabel: "YouTube",
     thumb: "images/YouTube/006.png",
     link: "https://www.youtube.com/watch?v=1ouevNwOjR8"
+  },
+  {
+    title: "猫カフェLP（作例）",
+    category: "lp",
+    categoryLabel: "制作LP",
+    thumb: "images/LP/nekocafe.png",
+    link: "https://satomasa2260.github.io/nekocafe/"
+  },
+  {
+    title: "法律事務所LP（作例）",
+    category: "lp",
+    categoryLabel: "制作LP",
+    thumb: "images/LP/houritujimusho.png",
+    link: "https://satomasa2260.github.io/lawfirm/"
+  },
+  {
+    title: "都内にあるカフェLP（作例）",
+    category: "lp",
+    categoryLabel: "制作LP",
+    thumb: "images/LP/cafe.png",
+    link: "https://satomasa2260.github.io/cafe-lp/"
   }
 ];
 
