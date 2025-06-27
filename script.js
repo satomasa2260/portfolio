@@ -2,6 +2,13 @@
 const works = [
   // --- まずブログ記事 ---
   {
+    title: "AI PCは\"賞味期限付き\"のデバイスなのか？ クラウドAIとの激突が生む未来",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/PCvsAI.png",
+    link: "https://note.com/satomasa_eth/n/ndce45b832d02"
+  },
+  {
     title: "Apple WWDC 2025徹底解説！ iOS 18（26）、Apple AI、HomeOSの噂と新機能まとめ",
     category: "blog",
     categoryLabel: "ブログ",
