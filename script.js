@@ -184,6 +184,14 @@ const works = [
     categoryLabel: "制作LP",
     thumb: "images/LP/cafe.png",
     link: "https://satomasa2260.github.io/cafe-lp/"
+  },
+  // --- ここからWebツール ---
+  {
+    title: "AIツール診断",
+    category: "webtool",
+    categoryLabel: "Webツール",
+    thumb: "images/webtool/aitoolshindan.png",
+    link: "https://satomasa2260.github.io/aitoolshindan/"
   }
 ];
 
