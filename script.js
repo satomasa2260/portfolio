@@ -2,6 +2,13 @@
 const works = [
   // --- まずブログ記事 ---
   {
+    title: "Amazonプライムデー2025攻略ガイド：お得な買い方から注目セール品まで徹底解説！",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/amazon01.jpg",
+    link: "https://note.com/satomasa_eth/n/n6f1e7bcdc8ee"
+  },
+  {
     title: "AI PCは\"賞味期限付き\"のデバイスなのか？ クラウドAIとの激突が生む未来",
     category: "blog",
     categoryLabel: "ブログ",
