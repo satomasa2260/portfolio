@@ -3,10 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>SATOMASAポートフォリオサイト</title>
+  <title>SATOMASAポートフォリオサイト | コンテンツクリエイター・テクノロジー解説</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="SATOMASAのポートフォリオサイト。テクノロジー、経済、投資、社会問題を分かりやすく解説するコンテンツクリエイター。AI活用、Web記事、ブログ、TikTok、YouTubeで情報発信中。">
+  <meta name="keywords" content="SATOMASA,コンテンツクリエイター,テクノロジー,AI,ブログ,TikTok,YouTube,投資,経済,Web記事,ポートフォリオ">
+  <meta name="author" content="SATOMASA">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://satomasa.com/">
+  <meta property="og:title" content="SATOMASAポートフォリオサイト | コンテンツクリエイター・テクノロジー解説">
+  <meta property="og:description" content="テクノロジー、経済、投資、社会問題を分かりやすく解説するコンテンツクリエイター。AI活用、Web記事、ブログ、TikTok、YouTubeで情報発信中。">
+  <meta property="og:image" content="https://satomasa.com/images/icon.jpg">
+  <meta property="og:site_name" content="SATOMASA Portfolio">
+  <meta property="og:locale" content="ja_JP">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://satomasa.com/">
+  <meta property="twitter:title" content="SATOMASAポートフォリオサイト | コンテンツクリエイター・テクノロジー解説">
+  <meta property="twitter:description" content="テクノロジー、経済、投資、社会問題を分かりやすく解説するコンテンツクリエイター。AI活用、Web記事、ブログ、TikTok、YouTubeで情報発信中。">
+  <meta property="twitter:image" content="https://satomasa.com/images/icon.jpg">
+  <meta property="twitter:creator" content="@Masa_ss">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://satomasa.com/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/icon.jpg">
+  <link rel="apple-touch-icon" href="images/icon.jpg">
+  
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <script defer src="script.js"></script>
+  
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ETZMY2M1G1"></script>
   <script>
@@ -15,101 +47,155 @@
     gtag('js', new Date());
     gtag('config', 'G-ETZMY2M1G1');
   </script>
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "SATOMASA",
+    "jobTitle": "コンテンツクリエイター",
+    "description": "テクノロジー、経済、投資、社会問題を分かりやすく解説するコンテンツクリエイター。AIも活用し、Web・TikTokなど多様な表現に挑戦中。",
+    "url": "https://satomasa.com/",
+    "image": "https://satomasa.com/images/icon.jpg",
+    "sameAs": [
+      "https://x.com/Masa_ss",
+      "https://note.com/satomasa_eth",
+      "https://www.tiktok.com/@spacewhiz2024"
+    ],
+    "knowsAbout": [
+      "テクノロジー",
+      "AI",
+      "投資",
+      "経済",
+      "社会問題",
+      "Webコンテンツ制作",
+      "TikTok",
+      "YouTube"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "フリーランス"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SATOMASA Portfolio",
+    "url": "https://satomasa.com/",
+    "description": "SATOMASAのポートフォリオサイト。テクノロジー、経済、投資、社会問題を分かりやすく解説するコンテンツクリエイター。",
+    "author": {
+      "@type": "Person",
+      "name": "SATOMASA"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "SATOMASA"
+    }
+  }
+  </script>
 </head>
 <body>
-  <header>
+  <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
+  <header role="banner">
     <div class="container header-inner">
       <h1 class="site-title">
-        <img src="images/icon.jpg" alt="アイコン" class="site-icon">
+        <img src="images/icon.jpg" alt="SATOMASAのアイコン" class="site-icon">
         SATOMASA Portfolio
       </h1>
-      <nav>
+      <nav role="navigation" aria-label="メインナビゲーション">
         <ul class="nav-list">
-          <li><a href="#works">Works</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#works" aria-label="作品一覧へ">Works</a></li>
+          <li><a href="#about" aria-label="自己紹介へ">About</a></li>
+          <li><a href="#contact" aria-label="お問い合わせへ">Contact</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="ダークモード切替">ダークモード</button>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2 class="hero-name">SATOMASA</h2>
-      <p class="hero-title">コンテンツクリエイター</p>
-      <p class="hero-desc">
-        テクノロジーや社会の最新トピックを、分かりやすく発信するクリエイター。<br>
-        AIも活用し、Web・TikTokなど多様な表現に挑戦中。<br>
-        最近はVibeCodingの学習に力を入れています。
-      </p>
-    </div>
-  </section>
-
-  <section id="works" class="works-section">
-    <div class="container">
-      <h2 class="section-title">Works</h2>
-      <div class="works-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="blog">ブログ</button>
-        <button class="filter-btn" data-filter="web">Web記事</button>
-        <button class="filter-btn" data-filter="lp">制作LP</button>
-        <button class="filter-btn" data-filter="webtool">Webツール</button>
-        <button class="filter-btn" data-filter="tiktok">TikTok</button>
-        <button class="filter-btn" data-filter="youtube">YouTube</button>
-      </div>
-      <div id="works-grid" class="works-grid">
-        <!-- ここにJSで作品カードが挿入されます -->
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <img src="images/icon.jpg" alt="アイコン" class="about-icon">
-      <div class="about-content">
-        <p>
-          テクノロジー、経済、投資、社会問題など幅広い分野をやさしく解説するコンテンツクリエイター。<br>
-          AIも活用し、Web記事・ブログ・TikTokなど多様なメディアで、初心者にも分かりやすく情報発信しています。<br>
-          「難しいことをやさしく、正直に」伝えることを大切にしています。
+  <main role="main" id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h2 id="hero-title" class="hero-name">SATOMASA</h2>
+        <p class="hero-title">コンテンツクリエイター</p>
+        <p class="hero-desc">
+          テクノロジーや社会の最新トピックを、分かりやすく発信するクリエイター。<br>
+          AIも活用し、Web・TikTokなど多様な表現に挑戦中。<br>
+          最近はVibeCodingの学習に力を入れています。
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="links" class="links-section">
-    <div class="container">
-      <h2 class="links-title">SNS & Links</h2>
-      <div class="links-grid">
-        <a href="https://x.com/Masa_ss" target="_blank" class="link-circle" aria-label="X">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="22" fill="#fff" stroke="#eee"/><g transform="translate(10,10) scale(1.2)"><path d="M13.53 2H17.5l-7.19 8.21L19 20H12.5l-5.18-6.18L3.47 20H-0.5l7.61-8.7L-1 2h6.61l4.74 5.66L13.53 2zm-1.09 15.19h1.79l-5.02-6.01-1.44 1.65 4.67 5.36zm-8.36-13.1l5.02 5.99 1.44-1.65-4.67-5.34H4.08z" fill="#222"/></g></svg>
-          <span class="link-label">X</span>
-        </a>
-        <a href="https://note.com/satomasa_eth" target="_blank" class="link-circle" aria-label="note">
-          <img src="images/note_logo.png" alt="note" class="link-img">
-          <span class="link-label">note</span>
-        </a>
-        <a href="https://www.tiktok.com/@spacewhiz2024" target="_blank" class="link-circle" aria-label="TikTok">
-          <img src="images/TikTok_logo.png" alt="TikTok" class="link-img">
-          <span class="link-label">TikTok</span>
-        </a>
+    <section id="works" class="works-section" aria-labelledby="works-title">
+      <div class="container">
+        <h2 id="works-title" class="section-title">Works</h2>
+        <div class="works-filter" role="tablist" aria-label="作品カテゴリフィルター">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" aria-controls="works-grid">All</button>
+          <button class="filter-btn" data-filter="blog" role="tab" aria-selected="false" aria-controls="works-grid">ブログ</button>
+          <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" aria-controls="works-grid">Web記事</button>
+          <button class="filter-btn" data-filter="lp" role="tab" aria-selected="false" aria-controls="works-grid">制作LP</button>
+          <button class="filter-btn" data-filter="webtool" role="tab" aria-selected="false" aria-controls="works-grid">Webツール</button>
+          <button class="filter-btn" data-filter="tiktok" role="tab" aria-selected="false" aria-controls="works-grid">TikTok</button>
+          <button class="filter-btn" data-filter="youtube" role="tab" aria-selected="false" aria-controls="works-grid">YouTube</button>
+        </div>
+        <div id="works-grid" class="works-grid" role="tabpanel" aria-label="作品一覧">
+          <!-- ここにJSで作品カードが挿入されます -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-links">
-        <a href="https://x.com/Masa_ss" target="_blank" aria-label="X">
-          <svg width="28" height="28" fill="#333" viewBox="0 0 24 24"><path d="M17.53 3H21.5l-7.19 8.21L23 21h-6.5l-5.18-6.18L5.47 21H1.5l7.61-8.7L1 3h6.61l4.74 5.66L17.53 3zm-1.09 15.19h1.79l-5.02-6.01-1.44 1.65 4.67 5.36zm-8.36-13.1l5.02 5.99 1.44-1.65-4.67-5.34H8.08z"/></svg>
-        </a>
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" class="section-title">About</h2>
+        <img src="images/icon.jpg" alt="SATOMASAのプロフィール画像" class="about-icon">
+        <div class="about-content">
+          <p>
+            テクノロジー、経済、投資、社会問題など幅広い分野をやさしく解説するコンテンツクリエイター。<br>
+            AIも活用し、Web記事・ブログ・TikTokなど多様なメディアで、初心者にも分かりやすく情報発信しています。<br>
+            「難しいことをやさしく、正直に」伝えることを大切にしています。
+          </p>
+        </div>
       </div>
-      <p class="contact-note">SNSのDMでお気軽にご連絡ください。</p>
-    </div>
-  </section>
+    </section>
 
-  <footer>
+    <section id="links" class="links-section" aria-labelledby="links-title">
+      <div class="container">
+        <h2 id="links-title" class="links-title">SNS & Links</h2>
+        <div class="links-grid">
+          <a href="https://x.com/Masa_ss" target="_blank" rel="noopener noreferrer" class="link-circle" aria-label="X（旧Twitter）でフォローする">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#fff" stroke="#eee"/><g transform="translate(10,10) scale(1.2)"><path d="M13.53 2H17.5l-7.19 8.21L19 20H12.5l-5.18-6.18L3.47 20H-0.5l7.61-8.7L-1 2h6.61l4.74 5.66L13.53 2zm-1.09 15.19h1.79l-5.02-6.01-1.44 1.65 4.67 5.36zm-8.36-13.1l5.02 5.99 1.44-1.65-4.67-5.34H4.08z" fill="#222"/></g></svg>
+            <span class="link-label">X</span>
+          </a>
+          <a href="https://note.com/satomasa_eth" target="_blank" rel="noopener noreferrer" class="link-circle" aria-label="noteで記事を読む">
+            <img src="images/note_logo.png" alt="noteロゴ" class="link-img">
+            <span class="link-label">note</span>
+          </a>
+          <a href="https://www.tiktok.com/@spacewhiz2024" target="_blank" rel="noopener noreferrer" class="link-circle" aria-label="TikTokで動画を見る">
+            <img src="images/TikTok_logo.png" alt="TikTokロゴ" class="link-img">
+            <span class="link-label">TikTok</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+        <div class="contact-links">
+          <a href="https://x.com/Masa_ss" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）でお問い合わせ">
+            <svg width="28" height="28" fill="#333" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3H21.5l-7.19 8.21L23 21h-6.5l-5.18-6.18L5.47 21H1.5l7.61-8.7L1 3h6.61l4.74 5.66L17.53 3zm-1.09 15.19h1.79l-5.02-6.01-1.44 1.65 4.67 5.36zm-8.36-13.1l5.02 5.99 1.44-1.65-4.67-5.34H8.08z"/></svg>
+          </a>
+        </div>
+        <p class="contact-note">SNSのDMでお気軽にご連絡ください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
     <div class="container">
       <small>&copy; 2025 SATOMASA. All rights reserved.</small>
     </div>
