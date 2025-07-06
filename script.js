@@ -412,12 +412,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function setTheme(mode) {
     if (mode === 'dark') {
       document.body.classList.add('dark-mode');
-      themeToggle.innerHTML = '☀️ ライト';
-      themeToggle.setAttribute('aria-label', 'ライトモードに切り替え');
+      themeToggle.innerHTML = '☀️ Light';
+      themeToggle.setAttribute('aria-label', 'Switch to light mode');
     } else {
       document.body.classList.remove('dark-mode');
-      themeToggle.innerHTML = '🌙 ダーク';
-      themeToggle.setAttribute('aria-label', 'ダークモードに切り替え');
+      themeToggle.innerHTML = '🌙 Dark';
+      themeToggle.setAttribute('aria-label', 'Switch to dark mode');
     }
   }
 
