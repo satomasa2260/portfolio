@@ -2,6 +2,14 @@
 const works = [
   // --- まずブログ記事 ---
   {
+    title: "【最短2分】資金ゼロで参加！Lorenzoテストネットで5万ドルのエアドロ報酬プールを狙う",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/lorenzo.png",
+    link: "https://note.com/satomasa_eth/n/n96515330ee9d",
+    description: "Lorenzoテストネットの参加方法を詳しく解説。無料で2分で完了し、5万ドルのエアドロップ報酬プールを狙える穴場プロジェクトを紹介。"
+  },
+  {
     title: "PER・PBRとは？投資初心者が知っておきたい企業価値の見方",
     category: "blog",
     categoryLabel: "ブログ",
