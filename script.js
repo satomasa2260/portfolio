@@ -2,6 +2,14 @@
 const works = [
   // --- まずブログ記事 ---
   {
+    title: "PER・PBRとは？投資初心者が知っておきたい企業価値の見方",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/per_pbr.png",
+    link: "https://note.com/satomasa_eth/n/n5c2213837b6c",
+    description: "PER・PBRの基本概念と企業価値の見方を初心者向けに解説。投資判断に役立つ指標の使い方を紹介。"
+  },
+  {
     title: "Amazonプライムデー2025攻略ガイド：お得な買い方から注目セール品まで徹底解説！",
     category: "blog",
     categoryLabel: "ブログ",
