@@ -2,6 +2,14 @@
 const works = [
   // --- 最新作品（Allタブで最初に表示） ---
   {
+    title: "【完全無料】サンライズ（Sunrise）Airdrop確定！ 7/14までの最終確認方法を徹底解説！",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/sunrise.png",
+    link: "https://note.com/satomasa_eth/n/n19dff0dace94",
+    description: "仮想通貨投資家の皆さん、朗報です。以前から注目していた「サンライズ（Sunrise）」プロジェクトのエアドロップが、ついに確定しました！完全無料で参加できたテストネットの貢献者向けに配布されます。"
+  },
+  {
     title: "災害情報サイト",
     category: "lp",
     categoryLabel: "制作LP",
