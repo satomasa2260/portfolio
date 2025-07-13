@@ -1,5 +1,14 @@
 // 作品データ
 const works = [
+  // --- 最新作品（Allタブで最初に表示） ---
+  {
+    title: "快適室温の教科書",
+    category: "lp",
+    categoryLabel: "制作LP",
+    thumb: "images/LP/kaiteki.png",
+    link: "https://satomasa2260.github.io/roomlife/",
+    description: "その室温、本当に快適？電気代を気にせず、家族みんなが健康に過ごす方法を紹介するランディングページ。"
+  },
   // --- まずブログ記事 ---
   {
     title: "【Solanaユーザー必見】ビットコイン無料GETのチャンス！ $zBTCエアドロップ確認方法を徹底解説",
