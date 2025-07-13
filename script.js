@@ -2,6 +2,14 @@
 const works = [
   // --- まずブログ記事 ---
   {
+    title: "【Solanaユーザー必見】ビットコイン無料GETのチャンス！ $zBTCエアドロップ確認方法を徹底解説",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/bitcoin01.png",
+    link: "https://note.com/satomasa_eth/n/nf6971a4fabcf",
+    description: "Solanaチェーン上で利用できるビットコイン$zBTCのエアドロップについて解説。ゼウスネットワークが提供する無料ビットコイン獲得チャンスを紹介。"
+  },
+  {
     title: "【最短2分】資金ゼロで参加！Lorenzoテストネットで5万ドルのエアドロ報酬プールを狙う",
     category: "blog",
     categoryLabel: "ブログ",
