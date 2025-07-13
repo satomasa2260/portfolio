@@ -2,6 +2,14 @@
 const works = [
   // --- 最新作品（Allタブで最初に表示） ---
   {
+    title: "災害情報サイト",
+    category: "lp",
+    categoryLabel: "制作LP",
+    thumb: "images/LP/DisasterPreventionInformation.png",
+    link: "https://satomasa2260.github.io/DisasterPreventionInformation/",
+    description: "災害情報を分かりやすく提供するサイト。防災知識と最新情報を統合した災害対策情報サイト。"
+  },
+  {
     title: "快適室温の教科書",
     category: "lp",
     categoryLabel: "制作LP",
