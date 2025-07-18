@@ -2,6 +2,14 @@
 const works = [
   // --- 最新作品（Allタブで最初に表示） ---
   {
+    title: "【たった5分で診断！】参院選2025 投票マッチングで「自分に合う政党」がすぐわかる！",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/vote2025.jpg",
+    link: "https://note.com/satomasa_eth/n/n4c02a5023c38",
+    description: "7月20日（日）に迫った参議院選挙。『どの政党に投票すればいいのか分からない』『政策が難しくて理解しにくい』と感じている方に向けて、いくつかの質問に答えるだけで自分に合う政党がすぐ分かる『投票マッチングツール』の魅力と主要なツールを紹介します。"
+  },
+  {
     title: "【完全無料】サンライズ（Sunrise）Airdrop確定！ 7/14までの最終確認方法を徹底解説！",
     category: "blog",
     categoryLabel: "ブログ",
