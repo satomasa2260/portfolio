@@ -2,6 +2,14 @@
 const works = [
   // --- 最新作品（Allタブで最初に表示） ---
   {
+    title: "btcSOLでビットコインを稼ぐ！ ソラナ（SOL）活用術【初心者向け】",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/btcsol.png",
+    link: "https://note.com/satomasa_eth/n/n4e58a1960f0f",
+    description: "ソラナ（SOL）を預けるだけで、ビットコイン（現物と同じ価値のトークン）が報酬としてもらえる新しいプロジェクト『btcSOL』を初心者向けに分かりやすく解説。始め方や注意点もステップごとに紹介します。"
+  },
+  {
     title: "【たった5分で診断！】参院選2025 投票マッチングで「自分に合う政党」がすぐわかる！",
     category: "blog",
     categoryLabel: "ブログ",
