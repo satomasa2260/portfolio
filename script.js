@@ -2,6 +2,14 @@
 const works = [
   // --- 最新作品（Allタブで最初に表示） ---
   {
+    title: "【超入門】アメリカ「GENIUS法」でステーブルコインはどう変わる？ あなたの暮らしも激変する理由",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/GENIUS.png",
+    link: "https://note.com/satomasa_eth/n/ncbb2693330bb",
+    description: "アメリカで成立した「GENIUS法（Guiding and Establishing National Innovation for U.S. Stablecoins Act）」について解説。ステーブルコインの規制枠組みと私たちの生活への影響を分かりやすく紹介。"
+  },
+  {
     title: "btcSOLでビットコインを稼ぐ！ ソラナ（SOL）活用術【初心者向け】",
     category: "blog",
     categoryLabel: "ブログ",
