@@ -1,5 +1,13 @@
 // 作品データ
 const works = [
+  {
+    title: "【緊急速報】Plume Networkでポイント2倍！ 残り14時間の限定クエストを逃すな",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/plume.png",
+    link: "https://note.com/satomasa_eth/n/nde57052c6fec",
+    description: "Plume Networkを触っているあなたに、今すぐ知ってほしい超お得な情報です！期間限定でPlumeポイントが2倍になる特別なクエストが開催されています。しかも、その期限は残り14時間（執筆時点）しかありません！この記事を読んだら、すぐにアクションを起こして、このチャンスを掴みましょう！"
+  },
   // --- 最新作品（Allタブで最初に表示） ---
   {
     title: "【超入門】アメリカ「GENIUS法」でステーブルコインはどう変わる？ あなたの暮らしも激変する理由",
