@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
   {
+    title: "【PayPay利用者必見】急増する詐欺から資産を守る！ 今すぐやるべきセキュリティ設定",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/PayPay.png",
+    link: "https://note.com/satomasa_eth/n/nd9d204717322",
+    description: "スマホ決済が当たり前になった今、私たちの生活に欠かせないツールとなったPayPay。しかし、その便利さの陰には、残念ながら詐欺の危険性も潜んでいます。2024年には返金詐欺が拡大し、2025年にはグループ請求詐欺やチケット詐欺など、PayPayを悪用した手口が巧妙化しています。この記事では、あなたが詐欺被害に遭わないために、PayPayで必ずやっておきたいセキュリティ設定を徹底的に解説します。"
+  },
+  {
     title: "【緊急速報】Plume Networkでポイント2倍！ 残り14時間の限定クエストを逃すな",
     category: "blog",
     categoryLabel: "ブログ",
