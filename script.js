@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
   {
+    title: "【どうなる？】2025年12月施行の「スマホ新法」を徹底解説！ iPhoneユーザーに迫る3つの影響",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/iPhone01.png",
+    link: "https://note.com/satomasa_eth/n/nf4695f6f78c3",
+    description: "2025年12月に施行される「スマホ新法」が、今SNSで大きな話題になっています。「iPhoneの機能が制限される」「セキュリティが危険になる」といった声を聞いて、不安に感じている方もいるのではないでしょうか。しかし、スマホ新法について、勘違いされている情報も多く見受けられます。この記事では、スマホ新法の目的や、私たちが知っておくべきメリット・デメリットをわかりやすく解説します。"
+  },
+  {
     title: "SBIがビットコイン投資信託を開発か？ 初心者必見の積立戦略とポートフォリオの未来",
     category: "blog",
     categoryLabel: "ブログ",
@@ -343,12 +351,24 @@ const works = [
   }
 ];
 
+// グローバル変数
+let currentFilter = "all";
+let currentPage = 0;
+let isLoading = false;
+const itemsPerPage = 12; // 1ページあたりの表示件数
+
 // 作品カードの生成（SEO・アクセシビリティ対応）
-function renderWorks(filter = "all") {
+function renderWorks(filter = "all", page = 0) {
   const grid = document.getElementById('works-grid');
   if (!grid) return;
   
-  grid.innerHTML = '';
+  // フィルターが変わった場合は最初から表示
+  if (filter !== currentFilter) {
+    grid.innerHTML = '';
+    currentPage = 0;
+    currentFilter = filter;
+  }
+  
   const filtered = filter === "all" ? works : works.filter(w => w.category === filter);
   
   if (filtered.length === 0) {
@@ -359,13 +379,18 @@ function renderWorks(filter = "all") {
     return;
   }
   
-  filtered.forEach((work, index) => {
+  // ページネーション処理
+  const startIndex = page * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const worksToShow = filtered.slice(startIndex, endIndex);
+  
+  worksToShow.forEach((work, index) => {
     const card = document.createElement('article');
     card.className = 'work-card';
     card.setAttribute('itemscope', '');
     card.setAttribute('itemtype', 'https://schema.org/CreativeWork');
     
-    const cardId = `work-${index}`;
+    const cardId = `work-${startIndex + index}`;
     card.setAttribute('id', cardId);
     
     card.innerHTML = `
@@ -396,6 +421,58 @@ function renderWorks(filter = "all") {
   announcement.className = 'sr-only';
   announcement.textContent = `${resultsCount}件の作品が見つかりました。`;
   grid.appendChild(announcement);
+  
+  // ローディング状態の更新
+  isLoading = false;
+  
+  // 次のページがあるかチェック
+  if (endIndex < filtered.length) {
+    showLoadMoreButton();
+  }
+}
+
+// ロードモアボタンの表示
+function showLoadMoreButton() {
+  const grid = document.getElementById('works-grid');
+  if (!grid) return;
+  
+  // 既存のロードモアボタンを削除
+  const existingButton = grid.querySelector('.load-more-btn');
+  if (existingButton) {
+    existingButton.remove();
+  }
+  
+  const loadMoreBtn = document.createElement('button');
+  loadMoreBtn.className = 'load-more-btn';
+  loadMoreBtn.textContent = 'もっと見る';
+  loadMoreBtn.setAttribute('aria-label', 'さらに作品を表示する');
+  
+  loadMoreBtn.addEventListener('click', () => {
+    loadMoreWorks();
+  });
+  
+  grid.appendChild(loadMoreBtn);
+}
+
+// 追加の作品を読み込む
+function loadMoreWorks() {
+  if (isLoading) return;
+  
+  isLoading = true;
+  currentPage++;
+  
+  // ローディング表示
+  const grid = document.getElementById('works-grid');
+  const loadingIndicator = document.createElement('div');
+  loadingIndicator.className = 'loading-indicator';
+  loadingIndicator.innerHTML = '<div class="spinner"></div><p>読み込み中...</p>';
+  grid.appendChild(loadingIndicator);
+  
+  // 少し遅延を入れてスムーズな表示
+  setTimeout(() => {
+    loadingIndicator.remove();
+    renderWorks(currentFilter, currentPage);
+  }, 300);
 }
 
 // フィルターボタンのイベント（アクセシビリティ対応）
@@ -413,9 +490,11 @@ function setupFilterButtons() {
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
       
-      // フィルター適用
+      // フィルター適用（ページをリセット）
       const filter = btn.getAttribute('data-filter');
-      renderWorks(filter);
+      currentPage = 0;
+      currentFilter = filter;
+      renderWorks(filter, 0);
       
       // フォーカス管理
       worksGrid.focus();
@@ -491,8 +570,10 @@ function setupLazyLoading() {
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
-  // 作品の初期表示
-  renderWorks();
+  // 作品の初期表示（ページネーション初期化）
+  currentFilter = "all";
+  currentPage = 0;
+  renderWorks("all", 0);
   
   // フィルターボタンの設定
   setupFilterButtons();
