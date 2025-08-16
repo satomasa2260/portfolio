@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
   {
+    title: "トランプ兄弟支援「American Bitcoin」日本株買収候補7選とBTC戦略分析",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/trump.png",
+    link: "https://note.com/satomasa_eth/n/nb4f30f815dcb",
+    description: "米大統領ドナルド・トランプ氏の長男ドナルド・トランプ・ジュニア氏と次男エリック・トランプ氏が支援する米マイニング企業American Bitcoin（AB）が、日本および香港の上場企業買収を検討している──。ABが日本市場で狙いそうな銘柄を、BTCトレジャリー戦略・小型上場企業・親子上場構造といった条件から徹底分析します。"
+  },
+  {
     title: "【どうなる？】2025年12月施行の「スマホ新法」を徹底解説！ iPhoneユーザーに迫る3つの影響",
     category: "blog",
     categoryLabel: "ブログ",
@@ -362,16 +370,38 @@ function renderWorks(filter = "all", page = 0) {
   const grid = document.getElementById('works-grid');
   if (!grid) return;
   
+  console.log('=== renderWorks called ===');
+  console.log('Filter:', filter, 'Page:', page, 'Current filter:', currentFilter);
+  
   // フィルターが変わった場合は最初から表示
   if (filter !== currentFilter) {
+    console.log('Filter changed, clearing grid');
     grid.innerHTML = '';
     currentPage = 0;
     currentFilter = filter;
+  } else {
+    console.log('Same filter, continuing with current page');
   }
   
-  const filtered = filter === "all" ? works : works.filter(w => w.category === filter);
+  // デバッグ: 現在のグリッドの状態を確認
+  console.log('Grid children count after clearing:', grid.children.length);
+  
+  // 追加のデバッグ: グリッドの内容を確認
+  console.log('Grid HTML content:', grid.innerHTML);
+  
+  // フィルタリング処理
+  let filtered;
+  if (filter === "all") {
+    filtered = works;
+    console.log('Showing all works:', filtered.length);
+  } else {
+    filtered = works.filter(w => w.category === filter);
+    console.log(`Filtering by category "${filter}":`, filtered.length);
+    console.log('Filtered works:', filtered.map(w => ({ title: w.title, category: w.category })));
+  }
   
   if (filtered.length === 0) {
+    console.log('No works found for filter:', filter);
     const noResults = document.createElement('p');
     noResults.textContent = '該当する作品はありません。';
     noResults.setAttribute('aria-live', 'polite');
@@ -384,7 +414,11 @@ function renderWorks(filter = "all", page = 0) {
   const endIndex = startIndex + itemsPerPage;
   const worksToShow = filtered.slice(startIndex, endIndex);
   
+  console.log(`Showing works ${startIndex} to ${endIndex} of ${filtered.length}`);
+  
   worksToShow.forEach((work, index) => {
+    console.log(`Creating card for work: ${work.title} (${work.category})`);
+    
     const card = document.createElement('article');
     card.className = 'work-card';
     card.setAttribute('itemscope', '');
@@ -411,6 +445,7 @@ function renderWorks(filter = "all", page = 0) {
     `;
     
     grid.appendChild(card);
+    console.log(`Card added to grid. Total cards now: ${grid.children.length}`);
   });
   
   // フィルター結果をスクリーンリーダーに通知
@@ -429,6 +464,8 @@ function renderWorks(filter = "all", page = 0) {
   if (endIndex < filtered.length) {
     showLoadMoreButton();
   }
+  
+  console.log('=== renderWorks completed ===');
 }
 
 // ロードモアボタンの表示
@@ -480,8 +517,12 @@ function setupFilterButtons() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const worksGrid = document.getElementById('works-grid');
   
+  console.log('Setting up filter buttons:', filterBtns.length, 'buttons found');
+  
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      console.log('=== Filter button clicked ===');
+      
       // アクティブ状態の更新
       filterBtns.forEach(b => {
         b.classList.remove('active');
@@ -492,9 +533,24 @@ function setupFilterButtons() {
       
       // フィルター適用（ページをリセット）
       const filter = btn.getAttribute('data-filter');
-      currentPage = 0;
-      currentFilter = filter;
-      renderWorks(filter, 0);
+      console.log('Filter button clicked:', filter);
+      console.log('Previous filter:', currentFilter, 'New filter:', filter);
+      
+      // フィルターが変わった場合のみ処理
+      if (filter !== currentFilter) {
+        console.log('Filter changed, updating...');
+        currentPage = 0;
+        currentFilter = filter;
+        
+        // グリッドをクリア
+        worksGrid.innerHTML = '';
+        console.log('Grid cleared, children count:', worksGrid.children.length);
+        
+        // 新しいフィルターで作品を表示
+        renderWorks(filter, 0);
+      } else {
+        console.log('Same filter selected, no action needed');
+      }
       
       // フォーカス管理
       worksGrid.focus();
@@ -570,6 +626,8 @@ function setupLazyLoading() {
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, initializing...');
+  
   // 作品の初期表示（ページネーション初期化）
   currentFilter = "all";
   currentPage = 0;

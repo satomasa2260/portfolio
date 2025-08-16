@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>フィルタリングテスト</title>
+  <style>
+    .filter-btn { margin: 5px; padding: 10px; cursor: pointer; }
+    .filter-btn.active { background: #007bff; color: white; }
+    .work-card { border: 1px solid #ccc; margin: 10px; padding: 10px; }
+    .work-category { color: #666; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>フィルタリングテスト</h1>
+  
+  <div class="works-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="blog">ブログ</button>
+    <button class="filter-btn" data-filter="web">Web記事</button>
+    <button class="filter-btn" data-filter="lp">制作LP</button>
+  </div>
+  
+  <div id="works-grid"></div>
+  
+  <script>
+    // テスト用の作品データ
+    const works = [
+      {
+        title: "トランプ兄弟支援「American Bitcoin」日本株買収候補7選とBTC戦略分析",
+        category: "blog",
+        categoryLabel: "ブログ",
+        thumb: "images/blog/trump.png",
+        link: "https://note.com/satomasa_eth/n/nb4f30f815dcb",
+        description: "米大統領ドナルド・トランプ氏の長男ドナルド・トランプ・ジュニア氏と次男エリック・トランプ氏が支援する米マイニング企業American Bitcoin（AB）が、日本および香港の上場企業買収を検討している──。ABが日本市場で狙いそうな銘柄を、BTCトレジャリー戦略・小型上場企業・親子上場構造といった条件から徹底分析します。"
+      },
+      {
+        title: "【どうなる？】2025年12月施行の「スマホ新法」を徹底解説！",
+        category: "blog",
+        categoryLabel: "ブログ",
+        thumb: "images/blog/iPhone01.png",
+        link: "https://note.com/satomasa_eth/n/nf4695f6f78c3",
+        description: "2025年12月に施行される「スマホ新法」について解説。"
+      },
+      {
+        title: "アップルAirPods Proは「精神と時の部屋」だった！",
+        category: "web",
+        categoryLabel: "Web記事",
+        thumb: "images/airpods.jpg",
+        link: "https://ascii.jp/elem/000/001/968/1968335/",
+        description: "AirPods Proの音質とノイズキャンセリング機能をレビュー。"
+      },
+      {
+        title: "災害情報サイト",
+        category: "lp",
+        categoryLabel: "制作LP",
+        thumb: "images/LP/DisasterPreventionInformation.png",
+        link: "https://satomasa2260.github.io/DisasterPreventionInformation/",
+        description: "災害情報を分かりやすく提供するサイト。"
+      }
+    ];
+
+    let currentFilter = "all";
+
+    function renderWorks(filter = "all") {
+      const grid = document.getElementById('works-grid');
+      grid.innerHTML = '';
+      
+      console.log('=== renderWorks called ===');
+      console.log('Filter:', filter, 'Current filter:', currentFilter);
+      
+      const filtered = filter === "all" ? works : works.filter(w => w.category === filter);
+      
+      console.log(`Filtering by category "${filter}":`, filtered.length);
+      console.log('Filtered works:', filtered.map(w => ({ title: w.title, category: w.category })));
+      
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p>該当する作品はありません。</p>';
+        return;
+      }
+      
+      filtered.forEach((work, index) => {
+        const card = document.createElement('div');
+        card.className = 'work-card';
+        card.innerHTML = `
+          <div class="work-category">${work.categoryLabel}</div>
+          <h3>${work.title}</h3>
+          <p>${work.description}</p>
+        `;
+        grid.appendChild(card);
+      });
+      
+      console.log('=== renderWorks completed ===');
+    }
+
+    function setupFilterButtons() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      
+      console.log('Setting up filter buttons:', filterBtns.length, 'buttons found');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // アクティブ状態の更新
+          filterBtns.forEach(b => {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          
+          // フィルター適用
+          const filter = btn.getAttribute('data-filter');
+          console.log('Filter button clicked:', filter);
+          currentFilter = filter;
+          renderWorks(filter);
+        });
+      });
+    }
+
+    // 初期化
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM loaded, initializing...');
+      renderWorks("all");
+      setupFilterButtons();
+    });
+  </script>
+</body>
+</html>
