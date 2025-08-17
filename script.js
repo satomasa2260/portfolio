@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
   {
+    title: "日本人90万人減少、人口減少が日本経済と資産形成に与える影響",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/jinkougenshou.png",
+    link: "https://note.com/satomasa_eth/n/n934de9199cd5",
+    description: "たった1年で90万人減少。これは和歌山県や香川県、秋田県といった1つの県が丸ごと消える規模の人口減少です。日本が直面する人口減少の現実は、私たちの「お金の戦略」に直結するテーマ。避けられない大きな流れ（メガトレンド）を前提に、個人としてどのように生き方や資産形成を組み立てるかを解説します。"
+  },
+  {
     title: "トランプ兄弟支援「American Bitcoin」日本株買収候補7選とBTC戦略分析",
     category: "blog",
     categoryLabel: "ブログ",
