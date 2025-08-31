@@ -413,6 +413,9 @@ function renderWorks(filter = "all", page = 0) {
     const noResults = document.createElement('p');
     noResults.textContent = '該当する作品はありません。';
     noResults.setAttribute('aria-live', 'polite');
+    noResults.style.gridColumn = '1 / -1'; // グリッドの全列にまたがる
+    noResults.style.textAlign = 'center'; // 中央揃え
+    noResults.style.padding = '40px 20px'; // 適切な余白
     grid.appendChild(noResults);
     return;
   }
@@ -471,6 +474,12 @@ function renderWorks(filter = "all", page = 0) {
   // 次のページがあるかチェック
   if (endIndex < filtered.length) {
     showLoadMoreButton();
+  } else {
+    // 最後のページに達した場合、「もっと見る」ボタンを削除
+    const existingButton = grid.querySelector('.load-more-btn');
+    if (existingButton) {
+      existingButton.remove();
+    }
   }
   
   console.log('=== renderWorks completed ===');
@@ -508,6 +517,13 @@ function loadMoreWorks() {
   
   // ローディング表示
   const grid = document.getElementById('works-grid');
+  
+  // 「もっと見る」ボタンを削除
+  const existingButton = grid.querySelector('.load-more-btn');
+  if (existingButton) {
+    existingButton.remove();
+  }
+  
   const loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'loading-indicator';
   loadingIndicator.innerHTML = '<div class="spinner"></div><p>読み込み中...</p>';
@@ -553,6 +569,9 @@ function setupFilterButtons() {
         // グリッドをクリア
         worksGrid.innerHTML = '';
         console.log('Grid cleared, children count:', worksGrid.children.length);
+        
+        // ページカウンターをリセット
+        currentPage = 0;
         
         // 新しいフィルターで作品を表示
         renderWorks(filter, 0);
@@ -639,6 +658,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // 作品の初期表示（ページネーション初期化）
   currentFilter = "all";
   currentPage = 0;
+  
+  // 既存の「もっと見る」ボタンをクリア
+  const grid = document.getElementById('works-grid');
+  if (grid) {
+    const existingButton = grid.querySelector('.load-more-btn');
+    if (existingButton) {
+      existingButton.remove();
+    }
+  }
+  
   renderWorks("all", 0);
   
   // フィルターボタンの設定
