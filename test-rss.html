@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>RSS取得テスト</title>
+</head>
+<body>
+  <h1>note RSS取得テスト</h1>
+  <button id="test-btn">RSS取得テスト</button>
+  <div id="result"></div>
+
+  <script>
+    // note RSSフィードから記事を取得
+    async function fetchNoteArticles() {
+      try {
+        console.log('note RSSフィードから記事を取得中...');
+        
+        // RSSフィードをJSONに変換するサービスを使用
+        const rssUrl = 'https://note.com/satomasa_eth/rss';
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        
+        console.log('API URL:', apiUrl);
+        
+        const response = await fetch(apiUrl);
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('RSS data:', data);
+        
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          console.log(`${data.items.length}件のnote記事を取得しました`);
+          
+          const resultDiv = document.getElementById('result');
+          resultDiv.innerHTML = `
+            <h2>取得結果: ${data.items.length}件</h2>
+            <ul>
+              ${data.items.map(article => `
+                <li>
+                  <strong>${article.title}</strong><br>
+                  <a href="${article.link}" target="_blank">${article.link}</a><br>
+                  ${article.description ? article.description.substring(0, 100) + '...' : '説明なし'}
+                </li>
+              `).join('')}
+            </ul>
+          `;
+          
+        } else {
+          console.log('RSSフィードから記事を取得できませんでした');
+          document.getElementById('result').innerHTML = '<p>記事を取得できませんでした</p>';
+        }
+        
+      } catch (error) {
+        console.error('note記事の取得に失敗:', error);
+        document.getElementById('result').innerHTML = `<p>エラー: ${error.message}</p>`;
+      }
+    }
+
+    // テストボタンのイベント
+    document.getElementById('test-btn').addEventListener('click', fetchNoteArticles);
+  </script>
+</body>
+</html>

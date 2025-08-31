@@ -368,10 +368,12 @@ const works = [
 ];
 
 // グローバル変数
-let currentFilter = "all";
+let currentFilter = "blog";
 let currentPage = 0;
 let isLoading = false;
 const itemsPerPage = 12; // 1ページあたりの表示件数
+
+
 
 // 作品カードの生成（SEO・アクセシビリティ対応）
 function renderWorks(filter = "all", page = 0) {
@@ -398,15 +400,9 @@ function renderWorks(filter = "all", page = 0) {
   console.log('Grid HTML content:', grid.innerHTML);
   
   // フィルタリング処理
-  let filtered;
-  if (filter === "all") {
-    filtered = works;
-    console.log('Showing all works:', filtered.length);
-  } else {
-    filtered = works.filter(w => w.category === filter);
-    console.log(`Filtering by category "${filter}":`, filtered.length);
-    console.log('Filtered works:', filtered.map(w => ({ title: w.title, category: w.category })));
-  }
+  let filtered = works.filter(w => w.category === filter);
+  console.log(`Filtering by category "${filter}":`, filtered.length);
+  console.log('Filtered works:', filtered.map(w => ({ title: w.title, category: w.category })));
   
   if (filtered.length === 0) {
     console.log('No works found for filter:', filter);
@@ -426,6 +422,14 @@ function renderWorks(filter = "all", page = 0) {
   const worksToShow = filtered.slice(startIndex, endIndex);
   
   console.log(`Showing works ${startIndex} to ${endIndex} of ${filtered.length}`);
+  
+  // ページ0の場合は既存のカードをクリア、それ以外は追加
+  if (page === 0) {
+    // 既存のカードをクリア（スクリーンリーダー用の要素は保持）
+    const existingCards = grid.querySelectorAll('.work-card');
+    existingCards.forEach(card => card.remove());
+    console.log('Cleared existing cards, remaining elements:', grid.children.length);
+  }
   
   worksToShow.forEach((work, index) => {
     console.log(`Creating card for work: ${work.title} (${work.category})`);
@@ -459,14 +463,16 @@ function renderWorks(filter = "all", page = 0) {
     console.log(`Card added to grid. Total cards now: ${grid.children.length}`);
   });
   
-  // フィルター結果をスクリーンリーダーに通知
-  const resultsCount = filtered.length;
-  const announcement = document.createElement('div');
-  announcement.setAttribute('aria-live', 'polite');
-  announcement.setAttribute('aria-atomic', 'true');
-  announcement.className = 'sr-only';
-  announcement.textContent = `${resultsCount}件の作品が見つかりました。`;
-  grid.appendChild(announcement);
+  // フィルター結果をスクリーンリーダーに通知（ページ0の場合のみ）
+  if (page === 0) {
+    const resultsCount = filtered.length;
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    announcement.textContent = `${resultsCount}件の作品が見つかりました。`;
+    grid.appendChild(announcement);
+  }
   
   // ローディング状態の更新
   isLoading = false;
@@ -515,6 +521,8 @@ function loadMoreWorks() {
   isLoading = true;
   currentPage++;
   
+  console.log('Loading more works, page:', currentPage);
+  
   // ローディング表示
   const grid = document.getElementById('works-grid');
   
@@ -532,6 +540,7 @@ function loadMoreWorks() {
   // 少し遅延を入れてスムーズな表示
   setTimeout(() => {
     loadingIndicator.remove();
+    console.log('Calling renderWorks with page:', currentPage);
     renderWorks(currentFilter, currentPage);
   }, 300);
 }
@@ -555,26 +564,27 @@ function setupFilterButtons() {
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
       
-      // フィルター適用（ページをリセット）
-      const filter = btn.getAttribute('data-filter');
-      console.log('Filter button clicked:', filter);
-      console.log('Previous filter:', currentFilter, 'New filter:', filter);
-      
-      // フィルターが変わった場合のみ処理
-      if (filter !== currentFilter) {
-        console.log('Filter changed, updating...');
-        currentPage = 0;
-        currentFilter = filter;
+              // フィルター適用（ページをリセット）
+        const filter = btn.getAttribute('data-filter');
+        console.log('Filter button clicked:', filter);
+        console.log('Previous filter:', currentFilter, 'New filter:', filter);
         
-        // グリッドをクリア
-        worksGrid.innerHTML = '';
-        console.log('Grid cleared, children count:', worksGrid.children.length);
+        // フィルターが変わった場合のみ処理
+        if (filter !== currentFilter) {
+          console.log('Filter changed, updating...');
+          currentFilter = filter;
+          
+          // ページカウンターをリセット
+          currentPage = 0;
+          
+          // グリッドをクリア
+          worksGrid.innerHTML = '';
+          console.log('Grid cleared, children count:', worksGrid.children.length);
+          
+          // 新しいフィルターで作品を表示
+          renderWorks(filter, 0);
         
-        // ページカウンターをリセット
-        currentPage = 0;
-        
-        // 新しいフィルターで作品を表示
-        renderWorks(filter, 0);
+
       } else {
         console.log('Same filter selected, no action needed');
       }
@@ -668,7 +678,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  renderWorks("all", 0);
+  // 作品の初期表示（ブログカテゴリをデフォルトで表示）
+  renderWorks("blog", 0);
   
   // フィルターボタンの設定
   setupFilterButtons();
