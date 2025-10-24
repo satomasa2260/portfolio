@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
   {
+    title: "【エアドロップ狙い必見】Polymer Bridgeとは？ 話題のクロスチェーンで稼ぐ最新戦略",
+    category: "blog",
+    categoryLabel: "ブログ",
+    thumb: "images/blog/polymer20251024.png",
+    link: "https://note.com/satomasa_eth/n/n320dee692f13",
+    description: "最近、ブリッジ系（クロスチェーン）プロジェクトのエアドロップが再び盛り上がりを見せています。そんな中で注目を集めているのが「Polymer（ポリマー）」という新興プロジェクトです。Polymerの概要からブリッジの使い方、そしてエアドロップ戦略まで、実際の使用感を交えてわかりやすく解説します。"
+  },
+  {
     title: "今さら聞けないゴールド投資の基本。なぜ\"金\"は世界中で買われるのか？",
     category: "blog",
     categoryLabel: "ブログ",
