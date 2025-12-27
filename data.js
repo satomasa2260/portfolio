@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
     {
+        title: "その高金利、実は危険かもしれない── ソフトバンクグループの個人向け社債ニュースから考える注意点",
+        category: "blog",
+        categoryLabel: "ブログ",
+        thumb: "images/blog/softbank_bond.jpg",
+        link: "https://note.com/satomasa_eth/n/ne765f71c9921",
+        description: "最近、日本でも金利がはっきりと上昇してきました。それに伴い、「高金利」をうたう個人向け社債の話題が目立つようになっています。ソフトバンクグループの個人向け社債ニュースから、社債投資のリスクと注意点を解説します。"
+    },
+    {
         title: "【エアドロップ狙い必見】Polymer Bridgeとは？ 話題のクロスチェーンで稼ぐ最新戦略",
         category: "blog",
         categoryLabel: "ブログ",
