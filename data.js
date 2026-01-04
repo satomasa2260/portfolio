@@ -1,6 +1,14 @@
 // 作品データ
 const works = [
     {
+        title: "「現状維持」は資産形成では通用しない理由── インフレ時代に“減らさないつもり”が一番危険な話",
+        category: "blog",
+        categoryLabel: "ブログ",
+        thumb: "images/blog/inflation_risk.jpg",
+        link: "https://note.com/satomasa_eth/n/n995a4e828b57",
+        description: "インフレ時代において、資産を「減らさない」という現状維持の考え方がなぜ危険なのかを解説しています。長期的な資産形成において「守り」の姿勢がかえってリスクになる理由を整理した記事です。"
+    },
+    {
         title: "その高金利、実は危険かもしれない── ソフトバンクグループの個人向け社債ニュースから考える注意点",
         category: "blog",
         categoryLabel: "ブログ",
